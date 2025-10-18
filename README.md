@@ -2,7 +2,7 @@
 
 A project to train a simulated humanoid robot to walk using Deep Reinforcement Learning. The robot learns to start walking from a variety of initial poses extracted directly from real-world images of people.
 
-## About The Project
+## 💡 About The Project
 
 The project pipeline consists of three main stages:
 * **Perception (Pose Estimation)**: A computer vision module takes a static image, detects people, and extracts a skeletal pose. This pose is converted into a vector of joint angles.
@@ -53,5 +53,5 @@ You can run the pose estimation module as a standalone script to extract a human
 
 2.  **Expected Output:**
     * The script will print whether a person was detected in the image.
-    * It will save the processed image with the skeletal overlay in a folder structure based on the input image (e.g., ./output_images/4/image/4.jpg).
+    * It will save the processed image with the skeletal overlay in a folder structure based on the input image (e.g., ./output_images/4/4.jpg).
     * The final joint angle vector ($\theta_{init}$) will be printed in the terminal for the detected person.
