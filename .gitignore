@@ -1,0 +1,26 @@
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# ===== Virtual environments =====
+.env
+.venv
+venv/
+ENV/
+
+# ===== Model files =====
+pose_estimation/models/*.caffemodel
+
+# ===== Output images (generated files) =====
+#./pose_estimation/output_images/
+
+# ===== IDE / Editor files =====
+.vscode/
+.idea/
+
+# ===== OS-specific =====
+.DS_Store
+Thumbs.db
