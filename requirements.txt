@@ -1,3 +1,12 @@
 opencv-python
 numpy
 mediapipe
+gymnasium
+pybullet
+numpy
+torch
+opencv-contrib-python
+Pillow
+matplotlib
+scipy
+setuptools

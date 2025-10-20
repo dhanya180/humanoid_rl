@@ -62,7 +62,14 @@ class HumanoidWalkEnv(gym.Env):
                 p.resetJointState(self.robot_id, i, angle)
 
         obs = self._get_observation()
-        return obs, {}
+        base_pos,_ = p.getBasePositionAndOrientation(self.robot_id)
+        base_lin_vel, _ = p.getBaseVelocity(self.robot_id)
+
+        info = {
+            "torso_pos": np.array(base_pos),
+            "torso_lin_vel": np.array(base_lin_vel)
+        }
+        return obs, info
 
     def step(self, action):
         # Map discrete action (0,1,2) to torque: -1,0,1
@@ -83,8 +90,16 @@ class HumanoidWalkEnv(gym.Env):
 
         obs = self._get_observation()
 
+
         # Reward: forward progress along X axis - small penalty for deviation/falling
         base_pos, _ = p.getBasePositionAndOrientation(self.robot_id)
+        base_lin_vel, _ = p.getBaseVelocity(self.robot_id)
+
+        info = {
+            "torso_pos": np.array(base_pos),
+            "torso_lin_vel": np.array(base_lin_vel)
+        }
+        
         x_pos = base_pos[0]
         reward = x_pos
 
@@ -94,7 +109,7 @@ class HumanoidWalkEnv(gym.Env):
             done = True
             reward -= 10.0  # penalty for falling
 
-        return obs, reward, done, False, {}
+        return obs, reward, done, False, info
 
     def close(self):
         p.disconnect()
