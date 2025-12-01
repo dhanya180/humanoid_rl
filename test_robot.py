@@ -29,7 +29,7 @@ if __name__ == "__main__":
         
         pose_extractor = PoseExtractor()
         body25 = pose_extractor.extract_skeleton(preprocessed_image)
-        
+        #set position based on image
         if len(body25) > 0:
             pose = body25_to_humanoid_pose(body25)
             pose_extractor.annotate_skeleton(image, body25, out_path)
@@ -99,5 +99,6 @@ if __name__ == "__main__":
         # Step the environment
         obs, _, terminated, truncated, _ = env.step(action_np)
         done = terminated or truncated
+
 
     env.close()
