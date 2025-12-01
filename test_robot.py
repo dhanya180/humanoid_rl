@@ -60,7 +60,7 @@ if __name__ == "__main__":
     env.render()
     # Access the viewer through the internal renderer object
     viewer = env.unwrapped.mujoco_renderer.viewer
-    
+    # camera settings
     viewer.cam.type = mujoco.mjtCamera.mjCAMERA_FREE  # enable free camera
     viewer.cam.azimuth = 45        # 4 o'clock sideways angle
     viewer.cam.elevation = -20     # tilt downward slightly
@@ -102,3 +102,4 @@ if __name__ == "__main__":
 
 
     env.close()
+
